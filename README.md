@@ -26,7 +26,7 @@ data
 
 To get started, you need to import your API key into the project. 
 
-```
+```bash
 export GPT_API_KEY='your_gpt-4o_api_key'
 export BASE_URL='your_base_url'
 export DASHSCOPE_API_KEY='your_dashscope_api_key'
@@ -36,13 +36,13 @@ export DASHSCOPE_API_KEY='your_dashscope_api_key'
 
 1. You need to modify the folder paths and corresponding sections in the configuration files before executing the program:
 
-   ```
+   ```bash
    python slicing/main.py
    ```
 
 2. Convert the output json files to the specified format:
 
-   ```
+   ```bash
    python tools/transform.py  
    ```
 
@@ -50,7 +50,7 @@ export DASHSCOPE_API_KEY='your_dashscope_api_key'
 
 3. Organize the processed json files into appropriate directories:
 
-   ```
+   ```bash
    python tools/mkdir_move.py
    ```
 
