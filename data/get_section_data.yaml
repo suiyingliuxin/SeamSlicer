@@ -1,0 +1,43 @@
+n_jobs: 4
+
+group_mode: true
+
+section_size: 6
+section_stride: 6
+
+group_name:
+  - video_001
+  - video_002
+  - video_003
+  - video_004
+  - video_005
+  - video_006
+  - video_007
+  - video_008
+  - video_009
+  - video_010
+  - video_011
+  - video_012
+  - video_013
+  - video_014
+  - video_015
+  - video_016
+  - video_017
+  - video_018
+  - video_019
+  - video_020
+  - video_021
+  - video_022
+  - video_023
+  - video_024
+  - video_025
+  - video_026
+  - video_027
+  - video_028
+  - video_029
+  - video_030
+
+data:
+  test_data:
+    video_dir: "./data/video"
+    section_dir: "./data/section_data"
