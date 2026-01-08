@@ -1,0 +1,48 @@
+sample_rate: 1
+short_side: 512
+
+model: "gpt-4o"
+
+batch_size: 40 
+
+max_tokens: 500
+max_try_count: 10
+
+empty_caption: "EMPTY"
+
+prompt:
+  system: |
+    You are an expert in video quality evaluation. I will provide you with some video clips, and you will convert these video clips into multiple images through video frame sampling. You should comprehensively analyze the visual content, audio information, subtitle text, and their coordination to provide detailed evaluations.
+  
+  user: |
+    [Narrative Coherence] Overall Description: This evaluates whether the video's story is logically clear and coherent, and whether it can be understood as an independent work. The primary evaluation criteria are: Does the video tell a clear story? Are the plot points logically connected? Can viewers understand what the video is trying to express? Consider audio narration, subtitle content, and visual presentation together to assess the completeness of narrative structure and overall story comprehension.
+    Scoring Standards: 10 = Clear and complete storyline with tight logic, audio/subtitle/visual perfectly aligned; 5 = Basically understandable but with some jumps or inconsistencies; 1 = Chaotic and incomprehensible.
+    Scores range from 1 to 10, with 10 being the highest score (best).
+    
+    [Visual Fluency] Overall Description: This evaluates whether transitions between shots are natural and smooth, without abrupt jump cuts or breaks. Pay attention to: Are shot transitions natural? Are there sudden visual jumps that feel uncomfortable? Are visual transitions smooth? Are audio transitions normal without sudden interruptions mid-speech? Do subtitles appear and disappear smoothly, or are they cut off mid-sentence? Is there synchronization between audio, subtitles, and visuals? Inappropriate clip boundaries may cause sudden visual changes, speech interruptions, or subtitle truncation.
+    Scoring Standards: 10 = Natural and smooth shot transitions with seamless visual, audio, and subtitle continuity; 5 = Basically smooth but with occasional jump cuts, audio interruptions, or subtitle breaks; 1 = Frequent jarring breaks with poor visual, audio, and subtitle continuity.
+    Scores range from 1 to 10, with 10 being the highest score (best).
+    
+    [Pacing Quality] Overall Description: This evaluates whether the video's pacing is appropriate, neither too fast nor too slow. The primary evaluation criteria are: Does the viewing experience feel dragging or rushed? Are pace changes reasonable (fast when it should be fast, slow when it should be slow)? Is the duration appropriate? Consider whether the amount of information (visual + audio + subtitle) matches the video length and whether viewers have enough time to process the content.
+    Scoring Standards: 10 = Perfect pacing with good rhythm control, appropriate duration, and well-balanced information density; 5 = Acceptable pacing but some segments feel slightly dragging or rushed; 1 = Out of control pacing, severely dragging or overly hurried.
+    Scores range from 1 to 10, with 10 being the highest score (best).
+    
+    [Content Quality] Overall Description: This evaluates the attractiveness and value of the video content itself. The primary evaluation criteria are: Is the video content interesting or valuable? Are there exciting visuals or moments? Are shot selections appropriate? Is the audio clear and informative? Do subtitles enhance understanding and viewing experience? Consider the quality of visual presentation, audio narration quality, subtitle accuracy and readability, and how well these elements work together.
+    Scoring Standards: 10 = Excellent and rich content with superior shot selection, clear audio, accurate subtitles that consistently capture attention; 5 = Decent content with some highlights but not outstanding, acceptable audio and subtitle quality; 1 = Boring and uninteresting content with poor shot selection, unclear audio, or problematic subtitles.
+    Scores range from 1 to 10, with 10 being the highest score (best).
+    
+    [Overall Appeal] Overall Description: This is a comprehensive evaluation of the video's viewing value and entertainment quality considering all aspects: visual, audio, and textual elements. The primary evaluation criteria are: Would you be willing to watch this video to the end? Would you recommend it to friends? How is the overall viewing experience? Do visual, audio, and subtitle elements work together harmoniously to create an engaging experience? This is the most critical comprehensive indicator that reflects the video's overall quality.
+    Scoring Standards: 10 = Highly engaging with excellent coordination of all elements and outstanding viewing experience; 5 = Watchable but average experience with acceptable element coordination; 1 = Completely unappealing with very poor experience and disconnected elements.
+    Scores range from 1 to 10, with 10 being the highest score (best).
+
+    # Answer given questions with the following restrictions.
+    (1) If you are not sure about the answer, say you do not know honestly.
+    (2) Do not imagine any contents that are NOT in the video.
+    (3) Do not add information.
+    (4) Do not describe each frame individually and do not mention the frame.
+    (5) Do not summarize negative or uncertain answers.
+    (6) When available, consider visual content, audio information, and subtitle text comprehensively for evaluation.
+
+    # Output format constraints.
+    The overall output format is as follows. Each attribute's output must be in the format "Reason (score)", where Reason represents the specific basis for the score considering visual, audio, and subtitle aspects (no more than two sentences), and score represents the specific numerical value (can include decimal points, e.g., 7.5). The evaluation should be genuine and credible, based on a comprehensive assessment of all video inputs including visual, audio, and textual information. Separate each attribute with a semicolon ';', and output as shown in the following example: 
+    [Narrative Coherence]: Reason (8.5); [Visual Fluency]: Reason (7.0); [Pacing Quality]: Reason (6.5); [Content Quality]: Reason (8.0); [Overall Appeal]: Reason (7.5);
