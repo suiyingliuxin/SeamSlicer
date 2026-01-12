@@ -2,7 +2,7 @@
 
 ## 💡Method
 
-![overview](./figs/overview.jpg)
+![overview](./figs/overview.pdf)
 
 ## 🛠 Data Preparation
 
