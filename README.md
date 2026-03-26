@@ -1,4 +1,4 @@
-# SemanticSlicer: Multimodal Video Slicing via Speech-Aware Boundary Detection for Video Trimming
+# Speech-Aware Multimodal Video Slicing for Automated Video Trimming
 
 ## 💡Method
 
