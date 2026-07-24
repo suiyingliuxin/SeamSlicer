@@ -86,4 +86,3 @@ python tools/get_evaluation.py --config data/get_evaluation.yaml
 
 This command would generate `./data/output/evaluation`.
 
-## 🎥 Visualization 
