@@ -36,6 +36,8 @@ export DASHSCOPE_API_KEY='your_dashscope_api_key'
 
 1. You need to modify the folder paths and corresponding sections in the configuration files before executing the program:
 
+The visual model checkpoint can be downloaded from: https://drive.google.com/file/d/1EHz3Sa2zIZq0jluVxMUEFsySfLColpUc/view?usp=sharing
+
    ```bash
    python slicing/main.py
    ```
